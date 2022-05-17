@@ -1,0 +1,47 @@
+<h1>{{ title }}</h1>
+<h3>1. Interpolation</h3>
+<p>Họ Tên: {{ fullName }}</p>
+<p>Tuổi: {{ age }}</p>
+<p>Tình trạng hồn nhân: {{ isMarried ? "Đã kết hôn" : "Độc thân" }}</p>
+<p>Username: {{ user.username }}</p>
+<p>Email: {{ user.email }}</p>
+<p>Role: {{ user.role ? "Admin" : "Client" }}</p>
+<img src="{{ imgSrc }}" />
+
+<br />
+<br />
+
+<h3>2. Property Binding (one way)</h3>
+<!-- C1 -->
+<img [src]="imgSrc" alt="" />
+<!-- C2 -->
+<img bind-src="imgSrc" alt="" />
+
+<button class="btn btn-danger" [disabled]="isDisabled">Hello</button>
+
+<br />
+<br />
+
+<h3>3. Event Binding (one-way)</h3>
+
+<button class="btn btn-info" (click)="clickMe()">Click me</button>
+
+<!-- <div class="form-group">
+  <label>Email</label>
+  <input type="text" class="form-control" (keyup)="getEmail($event)">
+</div>
+
+<p>Email: {{email}}</p> -->
+
+<br />
+<br />
+
+<h3>4. Two-way Binding (ngModel)</h3>
+
+<div class="form-group">
+    <!-- Note: phải import FormModule để dùng ngModel -->
+  <label>Email</label>
+  <input type="text" class="form-control" [(ngModel)] ="email" />
+</div>
+
+<p>Email: {{email}}</p>

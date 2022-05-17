@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+
+<h3>1. ngClass</h3>
+<br/>
+
+<!-- <h4 class="bg-danger text-white">Welcome to Cybersoft!</h4> -->
+<h4 [ngClass]="{'bg-danger': isBgDanger, 'text-white': isTextWhite}">Welcome to Cybersoft!</h4>
+
+<h3>2. ngStyle</h3>
+<br/>
+<h4 [ngStyle]="{'background-color': isBgDanger ? 'red': 'white'}">Welcome to Cybersoft!</h4>
+
+<h3>3. Use custom directive</h3>
+<br/>
+
+<h4 appHightlight>Welcome to Cybersoft!</h4>
+
+<button appHoverButton>Hello</button>

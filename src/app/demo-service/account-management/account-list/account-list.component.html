@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Account</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>User ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let account of listAccount; index as idx'>
+            <td>{{idx + 1}}</td>
+            <td>{{account.taiKhoan}}</td>
+            <td>{{account.hoTen}}</td>
+            <td>{{account.email}}</td>
+            <td>{{account.maLoaiNguoiDung}}</td>
+        </tr>
+    </tbody>
+</table>

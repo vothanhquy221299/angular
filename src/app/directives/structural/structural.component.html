@@ -1,0 +1,62 @@
+<h1>{{ title }}</h1>
+<h3>1. ngIf</h3>
+
+<button *ngIf="!isLoggedIn" class="btn btn-success" (click)="login()">
+  Log in
+</button>
+
+<div *ngIf="isLoggedIn">
+  <p>Username: {{ userName }}</p>
+  <button class="btn btn-danger" (click)="logout()">Log out</button>
+</div>
+
+<div class="form-group">
+  <label>Nhập vào tuổi: </label>
+  <input type="text" class="form-control" [(ngModel)]="age" />
+</div>
+
+<p *ngIf="age >= 18; else isNotOldEnoughBlock">Đã đủ tuổi</p>
+<!-- ng-template: component ảo (tương tự  Fragment trong react) -->
+<ng-template #isNotOldEnoughBlock>
+  <p *ngIf="age < 18">Chưa đủ tuổi</p>
+</ng-template>
+
+<br/>
+<br/>
+
+<h3>2. ngFor</h3>
+<ng-container *ngIf="rappers.length >0">
+<ul class="list-group">
+    <li 
+    *ngFor="let rapper of rappers; 
+                index as idx;
+                count as length;
+                first as isFirst;
+                last as isLast;
+                even as isEven;
+                odd as isOdd" class="list-group-item">
+    {{idx}} - {{rapper}} - {{length}} - {{isFirst}} - {{isLast}} - {{isEven}} - {{isOdd}}</li>
+</ul>
+</ng-container>
+
+<br/>
+<br/>
+
+<h3>3. ngSwitchCase</h3>
+ <div class="form-group">
+   <label>Select color</label>
+   <select class="form-control" #color (change)="selectColor(color.value)">
+     <option value="black">Black</option>
+     <option value="green">Green</option>
+     <option value="pink">Pink</option>
+     <option value="red">Red</option>
+   </select>
+ </div>
+
+ <div [ngSwitch]="selectedColor">
+  <div *ngSwitchCase="'green'" style="color: green">You selected Green</div>
+  <div *ngSwitchCase="'pink'" style="color: pink">You selected Pink</div>
+  <div *ngSwitchCase="'red'" style="color: red">You selected Red</div>
+  <div *ngSwitchDefault style="color: black">You selected Black</div>
+ </div>
+
